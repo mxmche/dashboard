@@ -23,14 +23,21 @@ export class BoardComponent {
         }
       ]
     },
-    { title: 'In Progress' },
-    { title: 'Fixed' }
+    {
+      title: 'In Progress',
+      items: [
+        { id: 3, title: 'Test' }
+      ]
+    },
+    { title: 'Fixed', items: [] }
   ];
 
   items1 = [1, 2, 3, 4, 5];
   items2 = ['a', 'b', 'c', 'd', 'e'];
 
   options: SortablejsOptions = {
-    group: 'board'
+    group: 'board',
+    // draggable: '.tile',
+    handle: '.tile__name'
   };
 }
