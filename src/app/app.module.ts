@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SortablejsModule } from 'angular-sortablejs';
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component';
+import { BoardComponent } from './board.component';
 
 const appRoutes: Routes = [
   {
@@ -20,14 +23,16 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    BoardComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    BrowserModule
+    BrowserModule,
+    SortablejsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

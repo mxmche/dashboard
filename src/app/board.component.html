@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+
+<h2>Drag / drop the item</h2>
+
+<div *ngFor="let column of columns">
+    <b>{{column.title}}</b>
+    <div *ngFor="let item of column.items">{{item.title}}</div>
+</div>
+
+<h3>list 1</h3>
+<div class="items1" [sortablejs]="items1" [sortablejsOptions]="options">
+    <div *ngFor="let item of items1">{{ item }}</div>
+</div>
+
+<h3>list 2</h3>
+<div class="items2" [sortablejs]="items2" [sortablejsOptions]="options">
+    <div *ngFor="let item of items2">{{ item }}</div>
+</div>
+
+<!--<h2>See the result</h2>
+<div>
+    <h3>list 1</h3>
+    <div *ngFor="let item of items1">{{ item }}</div>
+    <h3>list 2</h3>
+    <div *ngFor="let item of items2">{{ item }}</div>
+</div>-->
