@@ -3,7 +3,8 @@ import { SortablejsOptions } from 'angular-sortablejs';
 
 @Component({
   selector: 'app-board',
-  templateUrl: './board.component.html'
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.css']
 })
 export class BoardComponent {
 
@@ -26,18 +27,20 @@ export class BoardComponent {
     {
       title: 'In Progress',
       items: [
-        { id: 3, title: 'Test' }
+        {
+          id: 3,
+          title: 'Test'
+        }
       ]
     },
-    { title: 'Fixed', items: [] }
+    {
+      title: 'Fixed',
+      items: []
+    }
   ];
-
-  items1 = [1, 2, 3, 4, 5];
-  items2 = ['a', 'b', 'c', 'd', 'e'];
 
   options: SortablejsOptions = {
     group: 'board',
-    // draggable: '.tile',
-    handle: '.tile__name'
+    handle: '.board-card'
   };
 }
