@@ -1,7 +1,8 @@
 .board-column {
-    border: 1px solid red;
+    border: 1px solid darksalmon;
     padding: 30px;
     float: left;
+    margin: 5px;
 }
 
 .board-column-header {
@@ -16,5 +17,9 @@
 .board-card {
     padding: 10px;
     border:1px solid gray;
+    margin: 10px;
+}
+
+.board-form {
     margin: 10px;
 }

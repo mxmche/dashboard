@@ -39,6 +39,15 @@ export class BoardComponent {
     }
   ];
 
+  onAddBoard(value) {
+    if (value) {
+      this.columns.push({
+        title: value,
+        items: []
+      });
+    }
+  };
+
   options: SortablejsOptions = {
     group: 'board',
     handle: '.board-card'

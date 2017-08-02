@@ -1,5 +1,11 @@
 <h1>{{title}}</h1>
 
+<div class="board-form">
+    <label>New board</label>
+    <input #newBoard />
+    <button (click)="onAddBoard(newBoard.value); newBoard.value = '';">Add</button>
+</div>
+
 <div class="board-column" *ngFor="let column of columns">
     <div class="board-column-header">{{column.title}}</div>
     <div class="board-column-list" [sortablejs]="column.items" [sortablejsOptions]="options">
