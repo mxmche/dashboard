@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
 import { SortablejsOptions } from 'angular-sortablejs';
 
+interface Card {
+  id: number;
+  title: string;
+}
+
+interface BoardColumn {
+  title: string;
+  items: Array<Card>;
+}
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -10,7 +20,12 @@ export class BoardComponent {
 
   title = 'board';
 
-  columns = [
+  options: SortablejsOptions = {
+    group: 'board',
+    handle: '.board-card',
+  };
+
+  columns: Array<BoardColumn> = [
     {
       title: 'Open',
       items: [
@@ -29,7 +44,7 @@ export class BoardComponent {
       items: [
         {
           id: 3,
-          title: 'Test'
+          title: 'Test',
         }
       ]
     },
@@ -39,17 +54,19 @@ export class BoardComponent {
     }
   ];
 
-  onAddBoard(value) {
+  onAddBoard(value: string) {
     if (value) {
       this.columns.push({
         title: value,
         items: []
       });
     }
-  };
+  }
 
-  options: SortablejsOptions = {
-    group: 'board',
-    handle: '.board-card'
-  };
+  onAddCard(column: BoardColumn, value: string) {
+    column.items.push({
+      id: Math.random(),
+      title: value
+    });
+  }
 }
