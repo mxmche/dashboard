@@ -20,6 +20,10 @@
     margin: 10px;
 }
 
+.board-card-desc {
+    color: gray;
+}
+
 .board-form {
     width: 200px;
     margin: 10px;

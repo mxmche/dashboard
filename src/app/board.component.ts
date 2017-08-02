@@ -4,6 +4,7 @@ import { SortablejsOptions } from 'angular-sortablejs';
 interface Card {
   id: number;
   title: string;
+  description: string;
 }
 
 interface BoardColumn {
@@ -32,10 +33,12 @@ export class BoardComponent {
         {
           id: 1,
           title: 'Sample',
+          description: ''
         },
         {
           id: 2,
           title: 'Next',
+          description: ''
         }
       ]
     },
@@ -45,6 +48,7 @@ export class BoardComponent {
         {
           id: 3,
           title: 'Test',
+          description: ''
         }
       ]
     },
@@ -63,10 +67,11 @@ export class BoardComponent {
     }
   }
 
-  onAddCard(column: BoardColumn, value: string) {
+  onAddCard(column: BoardColumn, title: string, desc: string) {
     column.items.push({
+      title,
       id: Math.random(),
-      title: value
+      description: desc
     });
   }
 }

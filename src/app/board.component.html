@@ -9,10 +9,15 @@
 <div class="board-column" *ngFor="let column of columns">
     <div class="board-column-header">{{column.title}}</div>
     <div class="board-column-list" [sortablejs]="column.items" [sortablejsOptions]="options">
-        <div class="board-card" *ngFor="let item of column.items">{{item.title}}</div>
+        <div class="board-card" *ngFor="let item of column.items">
+            <div class="board-card-title">{{item.title}}</div>
+            <div class="board-card-desc">{{item.description}}</div>
+        </div>
     </div>
     <div class="board-new-card">
-        <input #newCard placeholder="New Card" /><br/>
-        <button (click)="onAddCard(column, newCard.value); newCard.value = '' ">Add card</button>
+        New Card<br/>
+        <input #newCardTitle placeholder="Title"/><br/>
+        <textarea #newCardDesc placeholder="Description"></textarea><br/>
+        <button (click)="onAddCard(column, newCardTitle.value, newCardDesc.value); newCardTitle.value = ''; newCardDesc.value = '' ">Add</button>
     </div>
 </div>
