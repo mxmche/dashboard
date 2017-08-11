@@ -1,12 +1,12 @@
-<h1>{{title}}</h1>
+<h2>{{title}} for projects: {{data.projects}}</h2>
 
 <div class="board-form">
-    <label>New board</label>
-    <input #newBoard />
-    <button (click)="onAddBoard(newBoard.value); newBoard.value = '' ">Add</button>
+    <label>New column</label>
+    <input #newColumn />
+    <button (click)="onAddColumn(newColumn.value); newColumn.value = '' ">Add</button>
 </div>
 
-<div class="board-column" *ngFor="let column of columns">
+<div class="board-column" *ngFor="let column of data.columns">
     <div class="board-column-header">{{column.title}}</div>
     <div class="board-column-list" [sortablejs]="column.items" [sortablejsOptions]="options">
         <div class="board-card" *ngFor="let item of column.items">

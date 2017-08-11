@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { SortablejsOptions } from 'angular-sortablejs';
 
-interface Card {
+interface Board {
   id: number;
-  title: string;
-  description: string;
+  projects: string[];
+  columns: Array<BoardColumn>;
 }
 
 interface BoardColumn {
+  id?: number;
   title: string;
   items: Array<Card>;
+}
+
+interface Card {
+  id?: number;
+  title: string;
+  description: string;
 }
 
 @Component({
@@ -26,51 +33,67 @@ export class BoardComponent {
     handle: '.board-card',
   };
 
-  columns: Array<BoardColumn> = [
-    {
-      title: 'Open',
-      items: [
-        {
-          id: 1,
-          title: 'Sample',
-          description: ''
-        },
-        {
-          id: 2,
-          title: 'Next',
-          description: ''
-        }
-      ]
-    },
-    {
-      title: 'In Progress',
-      items: [
-        {
-          id: 3,
-          title: 'Test',
-          description: ''
-        }
-      ]
-    },
-    {
-      title: 'Fixed',
-      items: []
-    }
-  ];
+  data: Board = {
+    id: 1,
+    projects: ['SAMPLE-1'],
+    columns: [
+      {
+        id: 1,
+        title: 'Open',
+        items: [
+          {
+            id: 1,
+            title: 'Sample',
+            description: 'desc'
+          },
+          {
+            id: 2,
+            title: 'Next',
+            description: 'desc'
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: 'In Progress',
+        items: [
+          {
+            id: 3,
+            title: 'Test',
+            description: 'desc'
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: 'Fixed',
+        items: []
+      }
+    ]
+  };
 
-  onAddBoard(value: string) {
+  /**
+   * Adds a column to board
+   * @param value
+   */
+  onAddColumn(value: string) {
     if (value) {
-      this.columns.push({
+      this.data.columns.push({
         title: value,
         items: []
       });
     }
   }
 
+  /**
+   * Adds a card to column
+   * @param column
+   * @param title
+   * @param desc
+   */
   onAddCard(column: BoardColumn, title: string, desc: string) {
     column.items.push({
       title,
-      id: Math.random(),
       description: desc
     });
   }
